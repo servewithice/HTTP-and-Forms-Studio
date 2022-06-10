@@ -4,25 +4,24 @@
 	<meta charset="utf-8">
 	<script>
 		// TODO: create a handler
-		function setSearchEngine() {
-			let actions = {
-   "google": "https://www.google.com/", 
-   "duckDuckGo": "https://duckduckgo.com", 
-   "bing": "https://www.bing.com/search", 
-   "ask": "https://www.ask.com/"
-};	
-	let engineSelected = document.querySelector("input[name=engine]:checked");
-	let search = document.querySelector("input[name=q]");
-	let action = actions[engineSelected.value];
-	let form = document.getElementById("searchForm");
-	form.setAttribute("action", action);
-	if (search.value === "" || engineSelected.value === null) {
-		window.alert("All fields required to make a search!");
-		event.preventDefault();
-	}
+	function setSearchEngine() {
+		let actions = {
+   			"google": "https://www.google.com/", 
+  			"duckDuckGo": "https://duckduckgo.com", 
+   			"bing": "https://www.bing.com/search", 
+   			"ask": "https://www.ask.com/"
+		};	
+		let engineSelected = document.querySelector("input[name=engine]:checked");
+		let search = document.querySelector("input[name=q]");
+		let form = document.getElementById("searchForm");
+		if (search.value === "" || engineSelected == null) {
+			window.alert("All fields required to make a search!");
+			event.preventDefault();
 		}
+		let action = actions[engineSelected.value];
+		form.setAttribute("action", action);
+	}
     window.addEventListener("load", function(){
-		
 		let form = document.getElementById("searchForm");
 		form.addEventListener("submit", setSearchEngine);
         // TODO: register the handler
